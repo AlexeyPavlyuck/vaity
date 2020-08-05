@@ -12,7 +12,7 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
@@ -24,7 +24,7 @@ class PostController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
@@ -35,40 +35,29 @@ class PostController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-
-        $post = new Post();
-//        $post->title = $request->title;
-//        $post->short_title = Str::length($request->title)>30 ? Str::substr($request->title, 0, 30). '...' : $request->title;
-//        $post->description = $request->description;
-//        $post->author_id = \Auth::user()->id;
-//
-//        if ($request->file('img')) {
-//            $path = Storage::putFile('public', $request->file('img'));
-//            $url = Storage::url($path);
-//            $post->img = $url;
-//        }
+       $post = new Post();
 
        $post->title = $request->title;
        $post->article = $request->article;
-       $post->author_id = $request->author_id;
+       $post->author_id = 1;
 
        $post->save();
+       return redirect()->route('post.index');
 
     }
 
-    public function upload(){
-        $imageFolder = "img/";
-        $temp = current($_FILES);
-        $filetowrite = $imageFolder . $temp['name'];
-        move_uploaded_file($temp['tmp_name'], $filetowrite);
+    public function upload(Request $request)
+    {
 
-        return (array('location' => $filetowrite));
+        $path = Storage::putFile('public', $request->file('file'));
+        $url = Storage::url($path);
+        return (array('location' => $url));
+
     }
-
     /**
      * Display the specified resource.
      *
