@@ -64,7 +64,7 @@ nav ul li a{
     padding-right: 2px;
 }
 
-.form-article input[name="title"]{
+.form-article textarea[name="title"]{
     margin-top: 10px;
     padding: 0;
     box-sizing: border-box;
@@ -72,14 +72,108 @@ nav ul li a{
     font-weight: 600;
     font-size: 35px;
 }
+
+.form-article textarea[name='description']{
+    width: 100%;
+    box-sizing: border-box;
+    resize: unset;
+    font-size: 25px;
+}
+
 .form-article button[type='submit']{
     width: 100%;
 
+}
+
+.container-post{
+    margin-top: 10px;
+}
+.post-index{
+    box-sizing: border-box;
+    border: 2px solid grey;
+    padding: 0px 20px 20px 20px;
+    margin-bottom: 20px;
+}
+.post-index-show{
+    box-sizing: border-box;
+    border: 2px solid grey;
+    padding: 0px 20px 20px 20px;
+    margin-bottom: 20px;
+}
+.post-img{
+    height: 300px;
+    background-position: center center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.post-title{
+    text-align: center;
+}
+.post-title h2{
+    display: inline-block;
+}
+
+#output span img.thumb{
+    max-width: 100%;
+    display: block;
+    margin: 0 auto 3px auto;
 
 }
+
+.container-post>.post-index:first-child>.post-title h2:before{
+    content:' * ' ;
+    color: red;
+    font-size: 24px;
+    background: -webkit-linear-gradient(left,#33235b,#d62229,#e97639,#792042,#33235b);
+    background: linear-gradient(left,#33235b,#d62229,#e97639,#792042,#33235b);
+    background-size: 200px 200px;
+    margin-top: 20vh;
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-animation: animate-text;
+    -webkit-animation-delay: 0;
+    -webkit-animation-duration: 7s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-fill-mode: forwards;
+    transition: font-size 5s ease-in-out;
+    /*animation: blur .75s ease-out infinite;*/
+}
+
+@keyframes animate-text {
+    0% {
+        background-position: 0 3200px;
+    }
+    100% {
+        background-position: 3200px 0;
+    }
+}
+
+@keyframes blur {
+    from {
+        text-shadow:0px 0px 10px #fff,
+        0px 0px 10px #ff0000,
+        0px 0px 12px #ff0000,
+        0px 0px 13px #ff0000,
+        0px 0px 15px #ff0000,
+        0px 0px 25px #ff0000,
+        0px 0px 25px #ff0000,
+        0px 0px 25px #ff0000,
+        0px 0px 30px #ff0000,
+        0px 10px 35px #ff0000,
+        0px 10px 35px #ff0000,
+        0px 10px 35px #ff0000,
+        0px 10px 35px #ff0000,
+        0px -10px 35px #ff0000,
+        0px -10px 35px #ff0000;
+    }
+}
+
+
+/*Responsive*/
 @media (min-width: 768px) {
     nav{
         height: 44px;
     }
 }
-

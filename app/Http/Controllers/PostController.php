@@ -16,8 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = DB::table('posts')->select('article')->get();
-
+        $posts = DB::table('posts')->orderBy('posts.created_at', 'desc')->get();
         return view('posts.index', compact('posts'));
     }
 
@@ -39,14 +38,21 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-       $post = new Post();
+        $post = new Post();
 
-       $post->title = $request->title;
-       $post->article = $request->article;
-       $post->author_id = 1;
+        $post->title = $request->title;
+        $post->article = $request->article;
+        $post->img = $request->img;
+        $post->author_id = 1;
 
-       $post->save();
-       return redirect()->route('post.index');
+        if ($request->file('img')) {
+            $path = Storage::putFile('public', $request->file('img'));
+            $url = Storage::url($path);
+            $post->img = $url;
+        }
+
+        $post->save();
+        return redirect()->route('post.index');
 
     }
 
@@ -62,11 +68,13 @@ class PostController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show($id)
     {
-        //
+        $post = Post::select('posts.*')->find($id);
+
+        return view('posts.show',compact('post'));
     }
 
     /**
