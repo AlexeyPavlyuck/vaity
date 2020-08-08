@@ -1,27 +1,15 @@
 @extends('layouts/layout')
 @section('content')
-    <div class="container-post">
-        @foreach ($posts as $post)
+    @foreach ($posts as $post)
 
+        <article class="article-index">
+            <h2>{{ $post->title }}</h2>
+            <img  src="{{$post->img}}">
 
+            <p>{{$post->description}}</p>
+            <button name="see-post" type="button"><a href="{{ route('post.show',['id'=>$post->post_id]) }}" >Читать далее...</a></button>
 
-            {{--            <div >{{$post->title}}</div>--}}
-            {{--            <div >{!! $post->article !!} </div>--}}
-            {{--            <div class="post-img" style="background-image: url({{ $post->img }})"></div>--}}
-            <div class="post-index">
-                <div class="post-title"><h2>{{ $post->title }}</h2></div>
-                <div class="post-article">
-                    <div class="post-img" style="background-image: url({{ $post->img }})"></div>
-                    <div >{!! $post->article !!} </div>
+        </article>
 
-                    {{--                    <div class="card-author">Автор: {{ $post->name }}</div>--}}
-                    <a href="{{ route('post.show',['id'=>$post->post_id]) }}" class="btn btn-outline-primary">Посмотреть пост</a>
-                </div>
-            </div>
-
-
-
-
-        @endforeach
-    </div>
+    @endforeach
 @endsection

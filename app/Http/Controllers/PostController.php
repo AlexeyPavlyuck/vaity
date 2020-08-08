@@ -16,7 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = DB::table('posts')->orderBy('posts.created_at', 'desc')->get();
+        $posts = Post::join('users', 'author_id', '=', 'users.id')->orderBy('posts.created_at', 'desc')->get();
         return view('posts.index', compact('posts'));
     }
 
@@ -44,6 +44,7 @@ class PostController extends Controller
         $post->article = $request->article;
         $post->img = $request->img;
         $post->author_id = 1;
+        $post->description = $request->description;
 
         if ($request->file('img')) {
             $path = Storage::putFile('public', $request->file('img'));
@@ -81,11 +82,13 @@ class PostController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+
+        return view('posts.edit',compact('post'));
     }
 
     /**
@@ -93,21 +96,39 @@ class PostController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
-        //
+        $post= Post::find($id);
+
+        $post->title = $request->title;
+        $post->article = $request->article;
+        $post->img = $request->img;
+        $post->author_id = 1;
+        $post->description = $request->description;
+
+        if ($request->file('img')) {
+            $path = Storage::putFile('public', $request->file('img'));
+            $url = Storage::url($path);
+            $post->img = $url;
+        }
+
+        $post->update();
+        return redirect()->route('post.show', $post);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+
+        $post->delete();
+        return redirect()->route('post.index');
     }
 }
