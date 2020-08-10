@@ -3,11 +3,11 @@
     @foreach ($posts as $post)
 
         <article class="article-index">
-            <h2>{{ $post->title }}</h2>
+            <h1>{{ $post->title }}</h1>
             <img  src="{{$post->img}}">
 
             <p>{{$post->description}}</p>
-            <button name="see-post" type="button"><a href="{{ route('post.show',['id'=>$post->post_id]) }}" >Читать далее...</a></button>
+            <button  class="main-button" type="button"><a href="{{ route('post.show',['id'=>$post->post_id]) }}" >Читать далее...</a></button>
 
         </article>
 

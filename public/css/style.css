@@ -18,9 +18,23 @@ body{
 *{
     font-family: Nunito, sans-serif;
 }
+
+h1{
+    margin: 0;
+    padding: 0 20px;
+    font-size: 52px;
+}
+
+h2{
+    font-size: 45px;
+}
+
+p {
+    font-size: 20px;
+}
 nav{
     width: 100%;
-    height: 48px;
+    height: 46px;
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     -webkit-font-smoothing: antialiased;
     background-clip: border-box;
@@ -28,10 +42,17 @@ nav{
     position: fixed;
     z-index: 999;
 }
+.nav-desktop{
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    -webkit-font-smoothing: antialiased;
+    backdrop-filter: saturate(180%) blur(20px);
+}
 
 main{
-    padding-top: 44px;
-    max-width: 1024px;
+    padding-top: 55px;
+    padding-right: 20px;
+    padding-left: 20px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -54,12 +75,12 @@ nav ul li a{
 
 .logo{
     font-weight: 600;
-    font-size: 28px;
-    display: flex;
+    font-size: 28px!important;
+    display: flex !important;
 }
 .logo img{
     height: 30px;
-    padding-top: 6px;
+    padding-top: 7px;
     padding-right: 2px;
 }
 
@@ -70,6 +91,10 @@ nav ul li a{
     width: 100%;
     font-weight: 600;
     font-size: 35px;
+}
+
+.form-article input[name="img"]{
+    margin: 10px 0;
 }
 
 .form-article textarea[name='description']{
@@ -113,7 +138,7 @@ article{
     display: inline-block;
 }
 .post-description {
-    font-size: 20px;
+    font-size: 25px;
     margin: 20px 0;
 }
 
@@ -130,7 +155,6 @@ article{
     box-sizing: border-box;
     resize: none;
     margin-top: 10px;
-    margin-bottom: -3px;
     border-color: rgb(204, 204, 204);
     height: 45px;
     padding-left: 5px;
@@ -173,46 +197,91 @@ article img{
 }
 
 article h2{
-    font-size: 52px;
     font-weight: 600;
-    max-width: 768px;
-    margin: 0 auto;
+    margin: 0 auto 15px;
 }
 
-article p {
+article.post-show {
     max-width: 768px;
     margin: 0 auto;
-    font-size: 25px;
-}
-
-article button[name='see-post'] {
     font-size: 20px;
+}
+
+.main-button{
+    font-size: 19px;
     background: linear-gradient(#42a1ec,#0070c9);
     border: 1px solid #07c;
     border-radius: 4px;
-    width: 100%;
-    padding: 0;
+    padding: 2px 25px;
 }
 
-.article-index {
-    border-bottom: 2px solid rgb(240, 240, 240);
-    padding-bottom: 20px;
-}
 
-article button[name='see-post'] a{
+.main-button a{
     text-decoration: none;
     color: #fff;
     display: block;
     width: 100%;
-    padding: 5px;
+
 }
 
-article button[name='see-post']:hover{
-    background: linear-gradient(#58a9e7, #177dc7);
+.main-button:hover{
+    background: linear-gradient(#46adff, #0074d2);
+}
+
+.btn-outline-danger {
+    font-size: 20px;
+    background: linear-gradient(#ff0202,#a21515);
+    border: 1px solid #dc3d3d;
+    border-radius: 4px;
+    width: 176px;
+    padding: 0;
+    color: white;
+    cursor: pointer;
+}
+.btn-outline-primary {
+    font-size: 20px;
+    background: linear-gradient(#42a1ec,#0070c9);
+    border: 1px solid #07c;
+    border-radius: 4px;
+    padding: 0px 25px;
+    color: white;
+
+}
+.btn-outline-primary:focus {
+    outline: none;
+}
+.article-index {
+    border-bottom: 2px solid rgb(240, 240, 240);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.control-post-btn {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+.article-post {
+    margin-bottom: 20px;
+}
+.post-author{
+    display: block;
+    margin: 15px 0;
+}
+.post-author-name,.post-author-date{
+    font-size: 17px;
+    font-weight: lighter;
+    display: inline;
+}
+.post-author-date{
+    color: grey;
+}
+.btn-create{
+    margin-bottom: 30px;
 }
 
 
-.container-post>.post-index:first-child>.post-title h2:before{
+.article-index:first-child >.article-post>h2:before{
     content:' * ' ;
     color: red;
     font-size: 24px;
@@ -230,6 +299,157 @@ article button[name='see-post']:hover{
     -webkit-animation-fill-mode: forwards;
     transition: font-size 5s ease-in-out;
     /*animation: blur .75s ease-out infinite;*/
+}
+
+nav {
+    margin: 0;
+    overflow: hidden;
+
+}
+
+.nav-content {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    height: 46px;
+}
+
+.nav-content a {
+    display: block;
+    line-height: 47px;
+    text-decoration: none;
+    transition: all 0.3s;
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+.nav-content a:hover,
+.nav-icon:hover,
+.search-icon:hover {
+    opacity: 100%;
+}
+
+.nav-links {
+    width: 55%;
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nav-icon {
+    display: none;
+    grid-gap: 5px;
+    grid-template-columns: auto;
+    margin-top: 20px;
+    height: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.bar {
+    height: 1px;
+    width: 18px;
+    background: white;
+    transition: 0.5s;
+}
+
+.search-icon {
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+@media (max-width: 768px) {
+
+    .nav-links {
+        position: fixed;
+        top: 44px;
+        right: 0;
+        height: 0;
+        width: 100%;
+        background: #333333;
+        flex-direction: column;
+        justify-content: flex-start;
+        transition: all 1.3s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .show .nav-links {
+        height: 100%;
+    }
+
+    .nav-links a {
+        height: 0;
+        width: 0;
+        opacity: 0;
+        overflow: hidden;
+        margin-right: 50px;
+        margin-left: 50px;
+        transition: opacity 1.5s, height 2s;
+    }
+
+    .show .nav-links a {
+        opacity: 1;
+        width: auto;
+        height: auto;
+    }
+
+    .nav-icon {
+        order: 1;
+        display: grid;
+    }
+
+    .logo {
+        order: 2;
+    }
+
+    .search-icon {
+        order: 3;
+    }
+
+}
+
+.show .one {
+    transform: rotate(45deg) translateY(5.5px);
+}
+
+.show .two {
+    transform: rotate(-45deg) translateY(-5.5px);
+}
+
+.content {
+    max-width: 1024px;
+    min-height: 380px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.content h1 {
+    font-size: 64px;
+    margin-bottom: 0;
+    color: #111111;
+}
+.black-bg{
+    background: black;
+}
+
+.errors-post {
+    background: #ff0000a6;
+    margin: 5px 0px;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
+
+@media (max-width: 960px){
+    .content h1 {
+        font-size: 48px;
+    }
 }
 
 @keyframes animate-text {
@@ -262,9 +482,4 @@ article button[name='see-post']:hover{
 }
 
 
-/*Responsive*/
-@media (min-width: 768px) {
-    nav{
-        height: 44px;
-    }
-}
+

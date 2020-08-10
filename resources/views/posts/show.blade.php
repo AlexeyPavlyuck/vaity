@@ -1,7 +1,7 @@
 @extends('layouts/layout')
 @section('content')
     <article>
-        <h2>{{ $post->title }}</h2>
+        <h1>{{ $post->title }}</h1>
         <img  src="{{$post->img}}">
 
         <p>{{$post->description}}</p>
