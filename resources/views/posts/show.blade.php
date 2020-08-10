@@ -13,9 +13,9 @@
                       onsubmit="if (confirm('Точно удалить?')) {return true} else {return false}">
                     @csrf
                     @method('DELETE')
-                    <input type="submit" class="btn btn-outline-danger" value="Удалить">
-                    <a href="{{ route('post.edit',['id'=>$post->post_id]) }}" class="btn btn-outline-primary">Редактировать пост</a>
-                    <a href="{{ route('post.index')}}" class="btn btn-outline-primary">На главную</a>
+                    <input type="submit" class="main-button" value="Удалить" style="cursor: pointer">
+                    <a href="{{ route('post.edit',['id'=>$post->post_id]) }}" class="main-button">Редактировать пост</a>
+{{--                    <a href="{{ route('post.index')}}" class="btn btn-outline-primary">На главную</a>--}}
                 </form>
 
 @endsection

@@ -19,18 +19,24 @@ body{
     font-family: Nunito, sans-serif;
 }
 
+img{
+    max-width: 100%;
+}
+
 h1{
     margin: 0;
-    padding: 0 20px;
-    font-size: 52px;
+    font-size: 50px;
+    padding: 0 19px;
 }
 
 h2{
     font-size: 45px;
+    padding: 0 19px;
 }
 
 p {
     font-size: 20px;
+    padding: 0 19px;
 }
 nav{
     width: 100%;
@@ -50,8 +56,6 @@ nav{
 
 main{
     padding-top: 55px;
-    padding-right: 20px;
-    padding-left: 20px;
     max-width: 1000px;
     margin: 0 auto;
 }
@@ -69,7 +73,7 @@ nav ul{
 nav ul li a{
     color: #f5f5f7;
     text-decoration: none;
-    line-height: 44px;
+    line-height: 46px;
 
 }
 
@@ -151,7 +155,7 @@ article{
 
 #textarea-title{
     width: 100%;
-    font-size: 30px;
+    font-size: 50px;
     box-sizing: border-box;
     resize: none;
     margin-top: 10px;
@@ -166,8 +170,8 @@ article{
     box-sizing: border-box;
     resize: none;
     border-color: rgb(204, 204, 204);
-    font-size: 24px;
     padding-left: 5px;
+    font-size: 20px;
 }
 #textarea-description::-webkit-scrollbar {
     display:none;
@@ -213,16 +217,12 @@ article.post-show {
     border: 1px solid #07c;
     border-radius: 4px;
     padding: 2px 25px;
-}
-
-
-.main-button a{
+    margin-left: 19px;
     text-decoration: none;
-    color: #fff;
-    display: block;
-    width: 100%;
-
+    color: white;
 }
+
+
 
 .main-button:hover{
     background: linear-gradient(#46adff, #0074d2);
@@ -363,9 +363,30 @@ nav {
 
 @media (max-width: 768px) {
 
+    h1{
+        font-size: 30px;
+    }
+
+    h2{
+        font-size: 28px;
+    }
+
+    p{
+        font-size: 18px;
+    }
+
+    #textarea-title{
+        font-size: 30px;
+
+    }
+
+    #textarea-description{
+        font-size: 18px;
+    }
+
     .nav-links {
         position: fixed;
-        top: 44px;
+        top: 46px;
         right: 0;
         height: 0;
         width: 100%;
@@ -446,11 +467,6 @@ nav {
     color: white;
 }
 
-@media (max-width: 960px){
-    .content h1 {
-        font-size: 48px;
-    }
-}
 
 @keyframes animate-text {
     0% {

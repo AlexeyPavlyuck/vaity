@@ -7,7 +7,7 @@
             <img  src="{{$post->img}}">
 
             <p>{{$post->description}}</p>
-            <button  class="main-button" type="button"><a href="{{ route('post.show',['id'=>$post->post_id]) }}" >Читать далее...</a></button>
+            <a class="main-button" href="{{ route('post.show',['id'=>$post->post_id]) }}" >Читать далее...</a>
 
         </article>
 

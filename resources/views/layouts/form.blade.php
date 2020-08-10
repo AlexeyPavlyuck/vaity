@@ -6,6 +6,7 @@
         height: '700px',
         resize: false,
         resize_img_proportional: true,
+        content_css: '{{asset('css/style.css')}}',
         setup: function (editor) {
             editor.on('init change', function () {
                 editor.save();
@@ -45,12 +46,14 @@
     });
 </script>
 
-<textarea  onkeyup="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px'"  placeholder=" Заголовок статьи... Максимум 50 символов" id="textarea-title" type="text" name="title" required>{{old('description') ?? $post->title ?? ''}}</textarea>
+<textarea  onkeyup="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px'"  placeholder=" Заголовок статьи... Максимум 50 символов" id="textarea-title" type="text" name="title" required>{{old('title') ?? $post->title ?? ''}}</textarea>
 
-Загрузить титульное изображение: <input required type="file" name="img" id="img" value="{{old('img')?? $post->img  ?? ''}}">
+<p style="font-size: 18px; display: inline">Загрузить титульное изображение:</p>
+<input type="file" name="img" id="img" value="{{old('img')?? $post->img  ?? ''}}">
 <span id="output">
                 <img class="thumb" src="{{old('img')?? $post->img  ?? ''}}">
         </span>
+
 <script>
     function handleFileSelect(evt) {
         var file = evt.target.files; // FileList object
@@ -72,7 +75,7 @@
         // Read in the image file as a data URL.
         reader.readAsDataURL(f);
     }
-    document.getElementById('img').addEventListener('change', handleFileSelect, false);
+    document.getElementById('img').addEventListener('load', handleFileSelect, false);
 </script>
 <textarea onkeyup="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px'" placeholder=" Описание статьи... Максимум 100 символов" id="textarea-description" type="text" name="description" required>{{old('description')?? $post->description  ?? ''}}</textarea>
 <textarea name="article" id="textarea" >{{old('article')?? $post->article ?? ''}}</textarea>
