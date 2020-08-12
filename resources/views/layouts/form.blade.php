@@ -3,7 +3,7 @@
     tinymce.init({
         branding: false,
         selector: '#textarea',
-        height: '700px',
+        height: '750px',
         resize: false,
         resize_img_proportional: true,
         content_css: '{{asset('css/style.css')}}',
@@ -22,8 +22,8 @@
         relative_urls: false,
         image_uploadtab: false,
         language: 'ru',
-        images_upload_url: '{{route('post.upload')}}',
         file_picker_types: 'image',
+        images_upload_url: '{{route('post.upload')}}',
         file_picker_callback: function(cb, value, meta) {
             var input = document.createElement('input');
             input.setAttribute('type', 'file');
@@ -44,12 +44,13 @@
             input.click();
         }
     });
+
 </script>
 
-<textarea  onkeyup="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px'"  placeholder=" Заголовок статьи... Максимум 50 символов" id="textarea-title" type="text" name="title" required>{{old('title') ?? $post->title ?? ''}}</textarea>
+<textarea  onkeyup="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px'"  placeholder=" Заголовок статьи... Максимум 50 символов" id="textarea-title" type="text" name="title">{{old('title') ?? $post->title ?? ''}}</textarea>
 
-<p style="font-size: 18px; display: inline">Загрузить титульное изображение:</p>
-<input type="file" name="img" id="img" value="{{old('img')?? $post->img  ?? ''}}">
+<p style="padding-left: 0; font-size: 18px; display: inline">Загрузить титульное изображение:</p>
+<input type="file" name="img" id="img" value="">
 <span id="output">
                 <img class="thumb" src="{{old('img')?? $post->img  ?? ''}}">
         </span>
@@ -75,7 +76,7 @@
         // Read in the image file as a data URL.
         reader.readAsDataURL(f);
     }
-    document.getElementById('img').addEventListener('load', handleFileSelect, false);
+    document.getElementById('img').addEventListener('change', handleFileSelect, false);
 </script>
 <textarea onkeyup="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px'" placeholder=" Описание статьи... Максимум 100 символов" id="textarea-description" type="text" name="description" required>{{old('description')?? $post->description  ?? ''}}</textarea>
 <textarea name="article" id="textarea" >{{old('article')?? $post->article ?? ''}}</textarea>
