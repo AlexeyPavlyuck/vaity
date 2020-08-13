@@ -47,10 +47,10 @@
 
 </script>
 
-<textarea  onkeyup="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px'"  placeholder=" Заголовок статьи... Максимум 50 символов" id="textarea-title" type="text" name="title">{{old('title') ?? $post->title ?? ''}}</textarea>
+<textarea onkeyup="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px'"  placeholder=" Заголовок статьи... Максимум 50 символов" id="textarea-title" type="text" name="title">{{old('title') ?? $post->title ?? ''}}</textarea>
 
 <p style="padding-left: 0; font-size: 18px; display: inline">Загрузить титульное изображение:</p>
-<input type="file" name="img" id="img" value="">
+<input class="btn btn-outline-secondary" type="file" name="img" id="img" value="">
 <span id="output">
                 <img class="thumb" src="{{old('img')?? $post->img  ?? ''}}">
         </span>
@@ -78,6 +78,6 @@
     }
     document.getElementById('img').addEventListener('change', handleFileSelect, false);
 </script>
-<textarea onkeyup="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px'" placeholder=" Описание статьи... Максимум 100 символов" id="textarea-description" type="text" name="description" required>{{old('description')?? $post->description  ?? ''}}</textarea>
+<textarea class="mt-0" onkeyup="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px'" placeholder=" Описание статьи... Максимум 100 символов" id="textarea-description" type="text" name="description" required>{{old('description')?? $post->description  ?? ''}}</textarea>
 <textarea name="article" id="textarea" >{{old('article')?? $post->article ?? ''}}</textarea>
-<button type="submit">Отправить</button>
+<button class="btn btn-success" type="submit">Отправить</button>
