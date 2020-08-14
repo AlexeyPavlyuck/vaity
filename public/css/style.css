@@ -1,5 +1,8 @@
-
 body{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     background-color: white;
     font-size: 1rem;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji" !important;
@@ -8,8 +11,11 @@ body{
 main{
     margin: 0 auto;
     max-width: 1140px;
+    flex-grow: 1;
 }
-
+footer {
+    flex-shrink: 0;
+}
 img{
     margin: 10px auto 10px auto;
     max-width: 100%;
@@ -22,6 +28,10 @@ article{
     border-bottom: 1px solid #e5e5e5;
 }
 
+main article:last-of-type{
+    border: none;
+}
+
 h1{
     font-size: 50px;
     padding: 0 15px;
@@ -31,17 +41,76 @@ h1{
 
 h2{
     font-size: 35px;
+    max-width: 900px;
+    margin: 15px auto;
+    padding: 0 15px;
 }
-p{
+main p, footer p{
     font-size: 20px;
     max-width: 900px;
     margin: 15px auto;
     padding: 0 15px;
 }
+
+.mce-content-body{
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0 auto;
+    font-size: 20px;
+}
+.ah-1{
+    color: rgb(33, 37, 41);
+}
+
+.ah-1:hover{
+    color: rgb(52, 144, 220);
+    text-decoration: none;
+}
+.load1{
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 18px;
+    display: inline;
+}
+.fs-18{
+    font-size: 18px!important;
+}
+.fs-4{
+    margin: 0 auto;
+    max-width: 200px;
+}
+.sa-4{
+    display: block;
+    max-width: 90%;
+    margin: 15px auto;
+}
+.br-n{
+    border: none;
+}
+.br-a{
+    max-width: 92%;
+    margin: -15px auto;
+}
+.bri{
+    width: 92%;
+    cursor: pointer;
+    margin: 0 auto;
+}
+.blog-footer {
+    padding: 1.3rem 0;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: .05rem solid #e5e5e5;
+    margin-top: 5px;
+}
+
 .btn-index{
-    width: 100%;
+    width: 92%;
     height: 35px;
     line-height: 100%;
+    margin: 0 auto;
+    display: block;
 
 }
 @media (max-width: 768px) {
@@ -53,6 +122,10 @@ p{
     }
     p{
         font-size: 18px;
+        padding: 0 15px;
+    }
+    .load1{
+        padding-left: 15px!important;
     }
 }
 
@@ -60,7 +133,7 @@ p{
     width: 100%;
     margin-top: 15px;
     padding: 0 15px;
-    font-size: 18px;
+    font-size: 30px;
 }
 .form-article button{
     margin: 15px 0 15px 0;
@@ -87,3 +160,14 @@ p{
     line-height: 1.5;
     border-radius: .2rem;
 }
+ nav{
+     margin: 0 auto;
+ }
+.pagination{
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    margin-top: -5px;
+}
+
