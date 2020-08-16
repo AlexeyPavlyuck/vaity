@@ -113,22 +113,6 @@ main p, footer p{
     display: block;
 
 }
-@media (max-width: 768px) {
-    h1{
-        font-size: 30px;
-    }
-    h2{
-        font-size: 23px;
-    }
-    p{
-        font-size: 18px;
-        padding: 0 15px;
-    }
-    .load1{
-        padding-left: 15px!important;
-    }
-}
-
 .form-article textarea{
     width: 100%;
     margin-top: 15px;
@@ -160,9 +144,9 @@ main p, footer p{
     line-height: 1.5;
     border-radius: .2rem;
 }
- nav{
-     margin: 0 auto;
- }
+nav{
+    margin: 0 auto;
+}
 .pagination{
     align-items: center;
     align-content: center;
@@ -170,4 +154,32 @@ main p, footer p{
     margin-bottom: 15px;
     margin-top: -5px;
 }
+.author-name-mobile{
+    display: none;
+}
 
+@media (max-width: 768px) {
+    h1{
+        font-size: 30px;
+    }
+    h2{
+        font-size: 23px;
+    }
+    p{
+        font-size: 18px;
+        padding: 0 15px;
+    }
+    .load1{
+        padding-left: 15px!important;
+    }
+}
+
+@media (max-width: 500px) {
+
+    #navbarDropdown>span.author-name{
+        display: none;
+    }
+    .author-name-mobile{
+        display: block;
+    }
+}

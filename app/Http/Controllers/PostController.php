@@ -7,7 +7,6 @@ use App\Post;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use phpDocumentor\Reflection\Types\String_;
 
 class PostController extends Controller
 {
@@ -33,8 +32,8 @@ class PostController extends Controller
             return view('posts.index', compact('posts'));
         }
 
-        $posts = Post::join('users', 'author_id', '=', 'users.id')->orderBy('posts.created_at', 'desc')->paginate(5);
 
+        $posts = Post::select('users.id','users.name','posts.*')->join('users', 'author_id', '=', 'users.id')->orderBy('posts.created_at', 'desc')->paginate(5);
         return view('posts.index', compact('posts'));
     }
 
@@ -96,8 +95,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::select('posts.*')->find($id);
-
+        //$post = Post::select('posts.*')->find($id);
+        $post = Post::select('users.id','users.name','posts.*')->join('users', 'author_id', '=', 'users.id')->find($id);
         if(!$post){
             return redirect()->route('post.index')->withErrors('Такого поста нет');
         }
