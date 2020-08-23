@@ -125,6 +125,10 @@
     @endif
 
     @yield('content')
+        {{--    test--}}
+        @php
+        @endphp
+        {{--    endtest--}}
 </main>
 <footer class="blog-footer">
     <p class="mt-0 mb-0"><a href="#"> ↑ Наверх </a></p>

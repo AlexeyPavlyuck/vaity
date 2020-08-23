@@ -7,6 +7,7 @@ use App\Post;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Routing\Controller;
 
 class PostController extends Controller
 {

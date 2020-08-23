@@ -51,18 +51,26 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
+                        <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-block btn-primary">
                                     {{ __(' Войти ') }}
                                 </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+{{--                                @if (Route::has('password.request'))--}}
+{{--                                    <a class="btn btn-link" href="{{ route('password.request') }}">--}}
 {{--                                        {{ __('Forgot Your Password?') }}--}}
-                                    </a>
-                                @endif
+{{--                                    </a>--}}
+{{--                                @endif--}}
                             </div>
+
+                        </div>
+                        <div class="form-group row">
+                        <div class="col-md-6 offset-md-4 text-center pt-4">
+                            <label>Не зарегистрированы?</label>
+                            <a href="{{route('register')}}" class="btn btn-block btn-success">
+                                {{ __(' Зарегистрироваться ') }}
+                            </a>
+                        </div>
                         </div>
                     </form>
                 </div>
