@@ -1,6 +1,6 @@
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
-Для запуска на сервере -  
+Для запуска на сервере - <br> 
 Склонировать гит
 git clone https://github.com/AlexeyPavlyuck/vaity
 В терминале:
