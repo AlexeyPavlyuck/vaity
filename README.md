@@ -1,23 +1,23 @@
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 Для запуска на сервере - <br> 
-Склонировать гит
-git clone https://github.com/AlexeyPavlyuck/vaity
-В терминале:
-composer install
-Для генерации ключа:
-php artisan key:generate
-Возможно нужно очистить кэш:
-php artisan config:cache
+Склонировать гит<br> 
+git clone https://github.com/AlexeyPavlyuck/vaity<br> 
+В терминале:<br> 
+composer install<br> 
+Для генерации ключа:<br> 
+php artisan key:generate<br> 
+Возможно нужно очистить кэш:<br> 
+php artisan config:cache<br> 
 
-Для базы данных файл .env.example переименовать в .env и настроить подключение к MySQL
-Для хранения картинок выполнить:
-php artisan storage:link
-Для миграции структуры базы данных:
-php artisan migrate
+Для базы данных файл .env.example переименовать в .env и настроить подключение к MySQL<br> 
+Для хранения картинок выполнить:<br> 
+php artisan storage:link<br> 
+Для миграции структуры базы данных:<br> 
+php artisan migrate<br> 
 
-Для запуска локального сервера выполнить:
-php artisan serve
+Для запуска локального сервера выполнить:<br> 
+php artisan serve<br> 
 
 
 <p align="center">
