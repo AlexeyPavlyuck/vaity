@@ -1,5 +1,25 @@
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
+Для запуска на сервере -  
+Склонировать гит
+git clone https://github.com/AlexeyPavlyuck/vaity
+В терминале:
+composer install
+Для генерации ключа:
+php artisan key:generate
+Возможно нужно очистить кэш:
+php artisan config:cache
+
+Для базы данных файл .env.example переименовать в .env и настроить подключение к MySQL
+Для хранения картинок выполнить:
+php artisan storage:link
+Для миграции структуры базы данных:
+php artisan migrate
+
+Для запуска локального сервера выполнить:
+php artisan serve
+
+
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
