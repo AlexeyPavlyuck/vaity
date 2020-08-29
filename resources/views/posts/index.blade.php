@@ -16,7 +16,7 @@
         <article>
 {{--           $post->created_at->diffForHumans()--}}
             <h1><a href="{{ route('post.show',['id'=>$post->post_id]) }}" class="ah-1">{{ $post->title }}</a></h1>
-            <p class="author"><a title="Ко всем постам автора" href="{{route('post.index',['search'=>$post->name])}}">{{$post->name}}</a>, {{$post->created_at->format('d.m.y h:i')}}</p>
+            <p class="author"><a title="Ко всем постам автора" href="{{route('post.index',['search'=>$post->name])}}">{{$post->name}}</a>, {{$post->created_at->format('d.m.y H:i')}}</p>
             <a href="{{ route('post.show',['id'=>$post->post_id]) }}"><img src="{{$post->img}}" alt=""></a>
             <p>{{$post->description}}</p>
             <a class="btn btn-outline-primary btn-lg btn-index" href="{{ route('post.show',['id'=>$post->post_id]) }}" >Читать далее...</a>
